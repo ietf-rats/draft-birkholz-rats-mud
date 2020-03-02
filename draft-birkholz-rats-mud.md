@@ -60,11 +60,11 @@ ISO/IEC 19770-2:2015 Software Identification (SWID) tags provide an extensible X
 
 Verifiers, Endorsers, and Attesters are roles defined in the RATS Architecture {{-rats-arch}}. In the RATS architecture, the Attester role relies on the Verifier and Endorser roles to enable the appraisal of Attestation Evidence produced by said Attesters; and to create corresponding Attestation Results. Attestation Results compose a believable chunk of information that can be digested by Relying Parities in order to assess an Attester's trustworthiness. The assessment of a remote peer's trustworthiness is vital to steer any future protocol interaction between the Attester and the remote Relying Party. To create these Attestation Results to be consumed by Relying Parties, the Attestation Evidence an Attester creates has to be processed by one or more appropriate Verifiers.
 
-This document defines a procedure that enables Remote Attestation Services in a local scope to discover viable sources for:
-1.) Attestation Policies, and
-2.) an Endorsements.
+This document defines a procedure that enables the discovery of viable resources for RATS services in a local scope:
+1.) Reference Integrity Measurements, and
+2.) an Endorsement documents.
 
-Additionally, a third option is provided: this document defines the option to enable a local point of first contact to discover:
+Additionally, a third option is provided: this document defines the option to enable thediscovery of remote Verfiers:
 3.) Remote Attestation Services (RAS) in a global scope (if no local trusted authorities are available).
 
 Attestation Policies and Endorsements are required to enable an appropriate appraisal of Attestation Evidence in a fashion that helps Relying Parties to digest the corresponding Attestation Results. This document defines the use of MUD URIs embedded in Secure Device Identifiers (IEEE 802.1AR DevIDs) as defined by {{RFC8520}}. These DevIDs are enrolled on the Attester by manufacturers or a related supply chain entities with appropriate authority. The DevIDs can be presented to local Network Management Systems, AAA-services (e.g. via IEEE 802.1X), or other points of first contact (e.g. {{RFC8071}}) in a local scope. These local entities of authority can digest the DevID and conduct trust decisions based on the DevID by tracing associated certification paths and trust anchors {{RFC4949}}. If the DevID presented by the Attester is deemed to be trusted by the local trust authority, the MUD URI embedded is considered to be a trusted source of viable (and if their Identity Documents are also to be trusted - believable) Attestation Policies, Endorsements, and even globally available RAS.

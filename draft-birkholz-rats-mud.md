@@ -52,7 +52,7 @@ informative:
   
 --- abstract
 
-ISO/IEC 19770-2:2015 Software Identification (SWID) tags provide an extensible XML-based structure to identify and describe individual software components, patches, and installation bundles. SWID tag representations can be too large for devices with network and storage constraints. This document defines a concise representation of SWID tags: Concise SWID (CoSWID) tags. CoSWID supports the same features as SWID tags, as well as additional semantics that allow CoSWIDs to describe additional types of information, all in a more memory efficient format.
+Manufacturer Usage Description (MUD) files and the MUD URI that point to them are defined in RFC 8520. This document introduces a new type of MUD file to be delivered in composition with a MUD file signature or to be embedded in an IEEE 802.1AR Secure Device Identifier (DevID). A DevID is a device specific pub-key identity document that can be presented to other entities, e.g. a network management system (NMS). If this entity is also a verifier as defined by the IETF Remote ATtestation procedureS (RATS) architecture, this verifier can use the reference in the MUD file specified in this document in order to discover appropriate Reference Integrity Measurements (RIM), Endorsement Documents, or even globally suitable Remote Attestation Services (RAS). All three types of theses resources are required to conduct RATS. Hence, the MUD file defined in this document enables remote attestation procedures by supporting the discovery of required resources or services.
 
 --- middle
 
@@ -62,9 +62,9 @@ Verifiers, Endorsers, and Attesters are roles defined in the RATS Architecture {
 
 This document defines a procedure that enables the discovery of viable resources for RATS services in a local scope:
 1.) Reference Integrity Measurements, and
-2.) an Endorsement documents.
+2.) Endorsement documents.
 
-Additionally, a third option is provided: this document defines the option to enable thediscovery of remote Verfiers:
+Additionally, a third option is provided: this document defines the option to enable the discovery of remote Verfiers:
 3.) Remote Attestation Services (RAS) in a global scope (if no local trusted authorities are available).
 
 Attestation Policies and Endorsements are required to enable an appropriate appraisal of Attestation Evidence in a fashion that helps Relying Parties to digest the corresponding Attestation Results. This document defines the use of MUD URIs embedded in Secure Device Identifiers (IEEE 802.1AR DevIDs) as defined by {{RFC8520}}. These DevIDs are enrolled on the Attester by manufacturers or a related supply chain entities with appropriate authority. The DevIDs can be presented to local Network Management Systems, AAA-services (e.g. via IEEE 802.1X), or other points of first contact (e.g. {{RFC8071}}) in a local scope. These local entities of authority can digest the DevID and conduct trust decisions based on the DevID by tracing associated certification paths and trust anchors {{RFC4949}}. If the DevID presented by the Attester is deemed to be trusted by the local trust authority, the MUD URI embedded is considered to be a trusted source of viable (and if their Identity Documents are also to be trusted - believable) Attestation Policies, Endorsements, and even globally available RAS.

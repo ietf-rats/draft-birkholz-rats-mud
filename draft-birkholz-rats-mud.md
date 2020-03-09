@@ -34,12 +34,14 @@ normative:
   RFC8342:
   RFC8510:
   RFC8526:
+  RFC6991:
+  RFC8340:
 
 informative:
   RFC4949:
   I-D.ietf-rats-architecture: rats-arch
   I-D.ietf-rats-eat: eat
-  
+
 --- abstract
 
 Manufacturer Usage Description (MUD) files and the MUD URI that point to them are defined in RFC 8520. This document introduces a new type of MUD file to be delivered in conjunction with a MUD file signature and/or to be referenced via a MUD URI embedded in an IEEE 802.1AR Secure Device Identifier (DevID). A DevID is a device specific pub-key identity document that can be presented to other entities, e.g. a network management system. If this entity is also a verifier as defined by the IETF Remote ATtestation procedureS (RATS) architecture, this verifier can use the references found in the MUD file specified in this document in order to discover appropriate Reference Integrity Measurements (RIM), Endorsement Documents, or even globally suitable Remote Attestation Services (RAS). All three types of theses resources are required to conduct RATS. Hence, the MUD file defined in this document enables remote attestation procedures by supporting the discovery of these required resources or services.
@@ -89,6 +91,26 @@ Reference Integrity Measurements and Endorsement documents that are referenced b
 
 The MUD URI embedded in a DevID presented by an Attester points to a MUD File.
 At the time of writing this -00 I-D, MUD URIs always point to a piece of data that is a YANG-modeled XML file with a structure specified in the style of a YANG module definition ({{RFC7950}} and corresponding updates: {{RFC8342}}, {{RFC8526}}). This document specifies a YANG module augment definition for generic MUD files to create RATS MUD files. The following definition MUST be used, if a MUD URI points to a RATS MUD file.
+
+## Tree Diagram
+
+The following tree diagram {{RFC8340}} provides an overview of the data model for the "ietf-mud-rats" module augment.
+
+~~~~
+<CODE BEGINS>
+{::include ietf-mud-rats.tree}
+<CODE ENDS>
+~~~~
+
+## YANG Module
+
+This YANG module has normative references to {{RFC6991}} and augments {{RFC8520}}.
+
+~~~~ YANG
+<CODE BEGINS> file ietf-mud-rats@2019-03-09.yang
+{::include ietf-mud-rats.yang}
+<CODE ENDS>
+~~~~
 
 # Privacy Considerations
 

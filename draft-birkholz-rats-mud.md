@@ -90,26 +90,6 @@ Reference Integrity Measurements and Endorsement documents that are referenced b
 The MUD URI embedded in a DevID presented by an Attester points to a MUD File.
 At the time of writing this -00 I-D, MUD URIs always point to a piece of data that is a YANG-modeled XML file with a structure specified in the style of a YANG module definition ({{RFC7950}} and corresponding updates: {{RFC8342}}, {{RFC8526}}). This document specifies a YANG module augment definition for generic MUD files to create RATS MUD files. The following definition MUST be used, if a MUD URI points to a RATS MUD file.
 
-## Tree Diagram
-
-The following tree diagram {{RFC8340}} provides an overview of the data model for the "ietf-mud-rats" module augment.
-
-~~~~
-<CODE BEGINS>
-{::include ietf-mud-rats.tree}
-<CODE ENDS>
-~~~~
-
-## YANG Module
-
-This YANG module has normative references to {{RFC6991}} and augments {{RFC8520}}.
-
-~~~~ YANG
-<CODE BEGINS> file ietf-mud-rats@2019-03-09.yang
-{::include ietf-mud-rats.yang}
-<CODE ENDS>
-~~~~
-
 # Privacy Considerations
 
 Potentially

@@ -8,7 +8,7 @@ Intended status: Standards Track                            9 March 2020
 Expires: 10 September 2020
 
 
-                    MUD-Based RATS Service Discovery
+                   MUD-Based RATS Resources Discovery
                      draft-birkholz-rats-mud-latest
 
 Abstract

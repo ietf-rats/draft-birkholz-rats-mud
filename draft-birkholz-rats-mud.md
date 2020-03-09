@@ -24,15 +24,11 @@ author:
   city: Darmstadt
 
 normative:
-  BCP26: RFC8126
-  BCP178: RFC6648
   RFC2119:
-  RFC8288:
   RFC8520:
   RFC7950:
   RFC8071:
   RFC8342:
-  RFC8510:
   RFC8526:
   RFC6991:
   RFC8340:

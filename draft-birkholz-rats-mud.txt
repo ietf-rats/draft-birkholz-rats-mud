@@ -84,19 +84,35 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
      1.1.  Requirements Notation . . . . . . . . . . . . . . . . . .   4
    2.  MUD URIs in DevIDs  . . . . . . . . . . . . . . . . . . . . .   4
    3.  MUD File Signatures . . . . . . . . . . . . . . . . . . . . .   4
    4.  Trusting MUD URIs and MUD Files . . . . . . . . . . . . . . .   4
      4.1.  Trusting RATS Resources referenced by a MUD File  . . . .   5
    5.  Specification of RATS MUD files referenced by MUD URIs  . . .   5
-   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   5
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .   6
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     5.1.  Tree Diagram  . . . . . . . . . . . . . . . . . . . . . .   5
+     5.2.  YANG Module . . . . . . . . . . . . . . . . . . . . . . .   5
+   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   8
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
+
+
+
+
+
+
+
+
+
+
+Birkholz                Expires 10 September 2020               [Page 2]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
 
 1.  Introduction
 
@@ -106,14 +122,6 @@ Table of Contents
    the appraisal of Attestation Evidence produced by said Attesters; and
    to create corresponding Attestation Results.  Attestation Results
    compose a believable chunk of information that can be digested by
-
-
-
-Birkholz                Expires 10 September 2020               [Page 2]
-
-Internet-Draft                 Muddy Rats                     March 2020
-
-
    Relying Parities in order to assess an Attester's trustworthiness.
    The assessment of a remote peer's trustworthiness is vital to steer
    any future protocol interaction between the Attester and the remote
@@ -154,14 +162,6 @@ Internet-Draft                 Muddy Rats                     March 2020
    appropriate authority.  These sources are required by appraisal
    procedures conducted by Verifiers in order to create well-founded
    Attestation Results.  For example, trusted Endorses can enrich
-   Attestation Results by vouching for the quality of hardware
-   components, the composition of a Composite Attester, or other
-   security characteristics of an Attester.
-
-   This specification does not define the format of Attestation Policies
-   and Endorsement documents.  A type of Attestation Policies and their
-   representation is defined in [I-D tbd].  A specific format of
-
 
 
 
@@ -170,6 +170,13 @@ Birkholz                Expires 10 September 2020               [Page 3]
 Internet-Draft                 Muddy Rats                     March 2020
 
 
+   Attestation Results by vouching for the quality of hardware
+   components, the composition of a Composite Attester, or other
+   security characteristics of an Attester.
+
+   This specification does not define the format of Attestation Policies
+   and Endorsement documents.  A type of Attestation Policies and their
+   representation is defined in [I-D tbd].  A specific format of
    Endorsements for hardware components based on [I-D.ietf-rats-eat] is
    defined in [I-D tbd].
 
@@ -211,13 +218,6 @@ Internet-Draft                 Muddy Rats                     March 2020
    trust towards the entity that signed a DevID (the signer), the
    embedded MUD URI SHOULD NOT be trusted.
 
-   The level of assurance about the integrity of a MUD file is based on
-   the level of trust put into the entity that created the corresponding
-   MUD File Signature.  If you cannot establish a level of trust put
-   into the corresponding trust anchor associated with the MUD signature
-   file, the referenced MUD File SHOULD NOT be trusted.
-
-
 
 
 
@@ -225,6 +225,12 @@ Birkholz                Expires 10 September 2020               [Page 4]
 
 Internet-Draft                 Muddy Rats                     March 2020
 
+
+   The level of assurance about the integrity of a MUD file is based on
+   the level of trust put into the entity that created the corresponding
+   MUD File Signature.  If you cannot establish a level of trust put
+   into the corresponding trust anchor associated with the MUD signature
+   file, the referenced MUD File SHOULD NOT be trusted.
 
 4.1.  Trusting RATS Resources referenced by a MUD File
 
@@ -244,6 +250,156 @@ Internet-Draft                 Muddy Rats                     March 2020
    specifies a YANG module augment definition for generic MUD files to
    create RATS MUD files.  The following definition MUST be used, if a
    MUD URI points to a RATS MUD file.
+
+5.1.  Tree Diagram
+
+   The following tree diagram [RFC8340] provides an overview of the data
+   model for the "ietf-mud-rats" module augment.
+
+   <CODE BEGINS>
+   module: ietf-mud-rats
+     augment /mud:mud:
+       +--rw ras
+       |  +--rw ras-uris*   inet:uri
+       +--rw rim
+       |  +--rw rim-uris*   inet:uri
+       +--rw edt
+          +--rw edt-uris*   inet:uri
+   <CODE ENDS>
+
+5.2.  YANG Module
+
+   This YANG module has normative references to [RFC6991] and augments
+   [RFC8520].
+
+
+
+
+
+
+Birkholz                Expires 10 September 2020               [Page 5]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
+
+   <CODE BEGINS>
+    file ietf-mud-rats@2019-03-09.yang
+   module ietf-mud-rats {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-mud-rats";
+     prefix "mud-rats";
+
+     import ietf-mud {
+       prefix "mud";
+     }
+
+     import ietf-inet-types {
+       prefix "inet";
+     }
+
+     organization
+       "IETF RATS (Remote ATtestation procedureS) Working Group";
+
+     contact
+       "WG Web: http://tools.ietf.org/wg/rats/
+        WG List: rats@ietf.org
+        Author: Eliot Lear <lear@cisco.com>
+        Author: Henk Birkholz <henk.birkholz@sit.fraunhofer.de>";
+
+     description
+       "This YANG module augments the ietf-mud model to provide for three
+        optional lists to enable Remote Attestation Procedures so that
+        this device type may be used as a controller for other
+        MUD-enabled devices.
+
+        Copyright (c) 2020 IETF Trust and the persons identified as
+        authors of the code.  All rights reserved.
+
+        Redistribution and use in source and binary forms, with or
+        without modification, is permitted pursuant to, and subject to
+        the license terms contained in, the Simplified BSD License set
+        forth in Section 4.c of the IETF Trust's Legal Provisions
+        Relating to IETF Documents
+        (https://trustee.ietf.org/license-info).
+
+        This version of this YANG module is part of RFC XXXX
+        (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
+         for full legal notices.
+
+        The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL', 'SHALL
+        NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'NOT RECOMMENDED',
+        'MAY', and 'OPTIONAL' in this document are to be interpreted as
+        described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
+
+
+
+Birkholz                Expires 10 September 2020               [Page 6]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
+
+        they appear in all capitals, as shown here.";
+
+     revision 2020-03-09 {
+       description
+         "Initial proposed standard.";
+          reference "RFC XXXX: MUD Extension to find RATS supply chain
+          entity resources: remote attestation services, endorsement
+          documents, and reference integrity measurement";
+     }
+
+     grouping mud-rats-grouping {
+       description
+         "Grouping to locate RATS services";
+       container ras {
+         description
+           "Lists of Remote Attestation Service
+            (RAS/Verifiers) candidates.";
+         leaf-list ras-uris {
+           type inet:uri;
+           description
+             "A list of Verifiers that can appraise evidence produced by
+              the entity that presents a DevID including this MUD URI.";
+         }
+       }
+       container rim {
+         description
+           "Lists of Reference Integrity Measurement (RIM) candidates.";
+         leaf-list rim-uris {
+           type inet:uri;
+           description
+             "A list of RIM CoSWID that provide reference integrity
+              measurements represented as signed CoSWID using
+              the CoSWID RIM extension.";
+         }
+       }
+       container edt {
+         description
+           "List of Endorsements for Roots of Trusts (e.g. Endorsement
+            Key Certificates).";
+         leaf-list edt-uris {
+           type inet:uri;
+           description
+             "A list of Endorsements that vouch for the characteristics
+              of Roots of Trusts the entity possesses.";
+         }
+       }
+     }
+     augment "/mud:mud" {
+
+
+
+Birkholz                Expires 10 September 2020               [Page 7]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
+
+       uses mud-rats-grouping;
+       description
+         "add mud-rats URI resources";
+     }
+   }
+   <CODE ENDS>
 
 6.  Privacy Considerations
 
@@ -274,13 +430,9 @@ Internet-Draft                 Muddy Rats                     March 2020
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-
-
-
-Birkholz                Expires 10 September 2020               [Page 5]
-
-Internet-Draft                 Muddy Rats                     March 2020
-
+   [RFC6991]  Schoenwaelder, J., Ed., "Common YANG Data Types",
+              RFC 6991, DOI 10.17487/RFC6991, July 2013,
+              <https://www.rfc-editor.org/info/rfc6991>.
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
@@ -290,6 +442,14 @@ Internet-Draft                 Muddy Rats                     March 2020
               RFC 8071, DOI 10.17487/RFC8071, February 2017,
               <https://www.rfc-editor.org/info/rfc8071>.
 
+
+
+
+Birkholz                Expires 10 September 2020               [Page 8]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -297,6 +457,10 @@ Internet-Draft                 Muddy Rats                     March 2020
    [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
               DOI 10.17487/RFC8288, October 2017,
               <https://www.rfc-editor.org/info/rfc8288>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/info/rfc8340>.
 
    [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
               and R. Wilton, "Network Management Datastore Architecture
@@ -329,19 +493,19 @@ Internet-Draft                 Muddy Rats                     March 2020
               02, 7 March 2020, <http://www.ietf.org/internet-drafts/
               draft-ietf-rats-architecture-02.txt>.
 
-
-
-
-
-Birkholz                Expires 10 September 2020               [Page 6]
-
-Internet-Draft                 Muddy Rats                     March 2020
-
-
    [I-D.ietf-rats-eat]
               Mandyam, G., Lundblade, L., Ballesteros, M., and J.
               O'Donoghue, "The Entity Attestation Token (EAT)", Work in
               Progress, Internet-Draft, draft-ietf-rats-eat-03, 20
+
+
+
+
+Birkholz                Expires 10 September 2020               [Page 9]
+
+Internet-Draft                 Muddy Rats                     March 2020
+
+
               February 2020, <http://www.ietf.org/internet-drafts/draft-
               ietf-rats-eat-03.txt>.
 
@@ -389,4 +553,8 @@ Author's Address
 
 
 
-Birkholz                Expires 10 September 2020               [Page 7]
+
+
+
+
+Birkholz                Expires 10 September 2020              [Page 10]

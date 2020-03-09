@@ -945,6 +945,14 @@ table.left {
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-specification-of-rats-mud-f" class="xref">Specification of RATS MUD files referenced by MUD URIs</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty">
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-tree-diagram" class="xref">Tree Diagram</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+<li class="toc ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-yang-module" class="xref">YANG Module</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
+</li>
+</ul>
 </li>
 <li class="toc ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-privacy-considerations" class="xref">Privacy Considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
@@ -1038,6 +1046,140 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
       </h2>
 <p id="section-5-1">The MUD URI embedded in a DevID presented by an Attester points to a MUD File.
 At the time of writing this -00 I-D, MUD URIs always point to a piece of data that is a YANG-modeled XML file with a structure specified in the style of a YANG module definition (<span>[<a href="#RFC7950" class="xref">RFC7950</a>]</span> and corresponding updates: <span>[<a href="#RFC8342" class="xref">RFC8342</a>]</span>, <span>[<a href="#RFC8526" class="xref">RFC8526</a>]</span>). This document specifies a YANG module augment definition for generic MUD files to create RATS MUD files. The following definition MUST be used, if a MUD URI points to a RATS MUD file.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<div id="tree-diagram">
+<section id="section-5.1">
+        <h3 id="name-tree-diagram">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-tree-diagram" class="section-name selfRef">Tree Diagram</a>
+        </h3>
+<p id="section-5.1-1">The following tree diagram <span>[<a href="#RFC8340" class="xref">RFC8340</a>]</span> provides an overview of the data model for the "ietf-mud-rats" module augment.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<div id="section-5.1-2">
+<pre class="sourcecode">&lt;CODE BEGINS&gt;
+
+module: ietf-mud-rats
+  augment /mud:mud:
+    +--rw ras
+    |  +--rw ras-uris*   inet:uri
+    +--rw rim
+    |  +--rw rim-uris*   inet:uri
+    +--rw edt
+       +--rw edt-uris*   inet:uri
+
+&lt;CODE ENDS&gt;</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="yang-module">
+<section id="section-5.2">
+        <h3 id="name-yang-module">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-yang-module" class="section-name selfRef">YANG Module</a>
+        </h3>
+<p id="section-5.2-1">This YANG module has normative references to <span>[<a href="#RFC6991" class="xref">RFC6991</a>]</span> and augments <span>[<a href="#RFC8520" class="xref">RFC8520</a>]</span>.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<div id="section-5.2-2">
+<pre class="sourcecode lang-YANG">&lt;CODE BEGINS&gt; file ietf-mud-rats@2019-03-09.yang
+module ietf-mud-rats {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-mud-rats";
+  prefix "mud-rats";
+
+  import ietf-mud {
+    prefix "mud";
+  }
+
+  import ietf-inet-types {
+    prefix "inet";
+  }
+
+  organization
+    "IETF RATS (Remote ATtestation procedureS) Working Group";
+
+  contact
+    "WG Web: http://tools.ietf.org/wg/rats/
+     WG List: rats@ietf.org
+     Author: Eliot Lear &lt;lear@cisco.com&gt;
+     Author: Henk Birkholz &lt;henk.birkholz@sit.fraunhofer.de&gt;";
+
+  description
+    "This YANG module augments the ietf-mud model to provide for three
+     optional lists to enable Remote Attestation Procedures so that
+     this device type may be used as a controller for other
+     MUD-enabled devices.
+
+     Copyright (c) 2020 IETF Trust and the persons identified as
+     authors of the code.  All rights reserved.
+
+     Redistribution and use in source and binary forms, with or
+     without modification, is permitted pursuant to, and subject to
+     the license terms contained in, the Simplified BSD License set
+     forth in Section 4.c of the IETF Trust's Legal Provisions
+     Relating to IETF Documents
+     (https://trustee.ietf.org/license-info).
+
+     This version of this YANG module is part of RFC XXXX
+     (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
+      for full legal notices.
+
+     The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL', 'SHALL
+     NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'NOT RECOMMENDED',
+     'MAY', and 'OPTIONAL' in this document are to be interpreted as
+     described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
+     they appear in all capitals, as shown here.";
+
+  revision 2020-03-09 {
+    description
+      "Initial proposed standard.";
+       reference "RFC XXXX: MUD Extension to find RATS supply chain
+       entity resources: remote attestation services, endorsement
+       documents, and reference integrity measurement";
+  }
+
+  grouping mud-rats-grouping {
+    description
+      "Grouping to locate RATS services";
+    container ras {
+      description
+        "Lists of Remote Attestation Service
+         (RAS/Verifiers) candidates.";
+      leaf-list ras-uris {
+        type inet:uri;
+        description
+          "A list of Verifiers that can appraise evidence produced by
+           the entity that presents a DevID including this MUD URI.";
+      }
+    }
+    container rim {
+      description
+        "Lists of Reference Integrity Measurement (RIM) candidates.";
+      leaf-list rim-uris {
+        type inet:uri;
+        description
+          "A list of RIM CoSWID that provide reference integrity
+           measurements represented as signed CoSWID using
+           the CoSWID RIM extension.";
+      }
+    }
+    container edt {
+      description
+        "List of Endorsements for Roots of Trusts (e.g. Endorsement
+         Key Certificates).";
+      leaf-list edt-uris {
+        type inet:uri;
+        description
+          "A list of Endorsements that vouch for the characteristics
+           of Roots of Trusts the entity possesses.";
+      }
+    }
+  }
+  augment "/mud:mud" {
+    uses mud-rats-grouping;
+    description
+      "add mud-rats URI resources";
+  }
+}
+
+&lt;CODE ENDS&gt;</pre><a href="#section-5.2-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="privacy-considerations">
@@ -1074,6 +1216,9 @@ At the time of writing this -00 I-D, MUD URIs always point to a piece of data th
 <dt id="RFC2119">[RFC2119]</dt>
 <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
+<dt id="RFC6991">[RFC6991]</dt>
+<dd>
+<span class="refAuthor">Schoenwaelder, J., Ed.</span>, <span class="refTitle">"Common YANG Data Types"</span>, <span class="seriesInfo">RFC 6991</span>, <span class="seriesInfo">DOI 10.17487/RFC6991</span>, <time datetime="2013-07">July 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6991">https://www.rfc-editor.org/info/rfc6991</a>&gt;</span>. </dd>
 <dt id="RFC7950">[RFC7950]</dt>
 <dd>
 <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refTitle">"The YANG 1.1 Data Modeling Language"</span>, <span class="seriesInfo">RFC 7950</span>, <span class="seriesInfo">DOI 10.17487/RFC7950</span>, <time datetime="2016-08">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7950">https://www.rfc-editor.org/info/rfc7950</a>&gt;</span>. </dd>
@@ -1086,6 +1231,9 @@ At the time of writing this -00 I-D, MUD URIs always point to a piece of data th
 <dt id="RFC8288">[RFC8288]</dt>
 <dd>
 <span class="refAuthor">Nottingham, M.</span>, <span class="refTitle">"Web Linking"</span>, <span class="seriesInfo">RFC 8288</span>, <span class="seriesInfo">DOI 10.17487/RFC8288</span>, <time datetime="2017-10">October 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8288">https://www.rfc-editor.org/info/rfc8288</a>&gt;</span>. </dd>
+<dt id="RFC8340">[RFC8340]</dt>
+<dd>
+<span class="refAuthor">Bjorklund, M.</span><span class="refAuthor"> and L. Berger, Ed.</span>, <span class="refTitle">"YANG Tree Diagrams"</span>, <span class="seriesInfo">BCP 215</span>, <span class="seriesInfo">RFC 8340</span>, <span class="seriesInfo">DOI 10.17487/RFC8340</span>, <time datetime="2018-03">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8340">https://www.rfc-editor.org/info/rfc8340</a>&gt;</span>. </dd>
 <dt id="RFC8342">[RFC8342]</dt>
 <dd>
 <span class="refAuthor">Bjorklund, M.</span><span class="refAuthor">, Schoenwaelder, J.</span><span class="refAuthor">, Shafer, P.</span><span class="refAuthor">, Watsen, K.</span><span class="refAuthor">, and R. Wilton</span>, <span class="refTitle">"Network Management Datastore Architecture (NMDA)"</span>, <span class="seriesInfo">RFC 8342</span>, <span class="seriesInfo">DOI 10.17487/RFC8342</span>, <time datetime="2018-03">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8342">https://www.rfc-editor.org/info/rfc8342</a>&gt;</span>. </dd>

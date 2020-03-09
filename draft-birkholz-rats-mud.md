@@ -1,5 +1,5 @@
 ---
-title: MUD-Based RATS Service Discovery
+title: MUD-Based RATS Resources Discovery
 abbrev: Muddy Rats
 docname: draft-birkholz-rats-mud-latest
 stand_alone: true

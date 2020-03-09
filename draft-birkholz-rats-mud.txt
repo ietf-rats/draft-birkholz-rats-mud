@@ -98,7 +98,7 @@ Table of Contents
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   9
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
 
 
 
@@ -414,17 +414,6 @@ Internet-Draft                 Muddy Rats                     March 2020
 
 8.1.  Normative References
 
-   [BCP178]   Saint-Andre, P., Crocker, D., and M. Nottingham,
-              "Deprecating the "X-" Prefix and Similar Constructs in
-              Application Protocols", BCP 178, RFC 6648,
-              DOI 10.17487/RFC6648, June 2012,
-              <https://www.rfc-editor.org/info/rfc6648>.
-
-   [BCP26]    Cotton, M., Leiba, B., and T. Narten, "Guidelines for
-              Writing an IANA Considerations Section in RFCs", BCP 26,
-              RFC 8126, DOI 10.17487/RFC8126, June 2017,
-              <https://www.rfc-editor.org/info/rfc8126>.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -442,6 +431,17 @@ Internet-Draft                 Muddy Rats                     March 2020
               RFC 8071, DOI 10.17487/RFC8071, February 2017,
               <https://www.rfc-editor.org/info/rfc8071>.
 
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/info/rfc8340>.
+
+   [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
+              and R. Wilton, "Network Management Datastore Architecture
+
 
 
 
@@ -450,28 +450,8 @@ Birkholz                Expires 10 September 2020               [Page 8]
 Internet-Draft                 Muddy Rats                     March 2020
 
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-   [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
-              DOI 10.17487/RFC8288, October 2017,
-              <https://www.rfc-editor.org/info/rfc8288>.
-
-   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
-              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
-              <https://www.rfc-editor.org/info/rfc8340>.
-
-   [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
-              and R. Wilton, "Network Management Datastore Architecture
               (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
               <https://www.rfc-editor.org/info/rfc8342>.
-
-   [RFC8510]  Psenak, P., Ed., Talaulikar, K., Henderickx, W., and P.
-              Pillay-Esnault, "OSPF Link-Local Signaling (LLS)
-              Extensions for Local Interface ID Advertisement",
-              RFC 8510, DOI 10.17487/RFC8510, January 2019,
-              <https://www.rfc-editor.org/info/rfc8510>.
 
    [RFC8520]  Lear, E., Droms, R., and D. Romascanu, "Manufacturer Usage
               Description Specification", RFC 8520,
@@ -497,15 +477,6 @@ Internet-Draft                 Muddy Rats                     March 2020
               Mandyam, G., Lundblade, L., Ballesteros, M., and J.
               O'Donoghue, "The Entity Attestation Token (EAT)", Work in
               Progress, Internet-Draft, draft-ietf-rats-eat-03, 20
-
-
-
-
-Birkholz                Expires 10 September 2020               [Page 9]
-
-Internet-Draft                 Muddy Rats                     March 2020
-
-
               February 2020, <http://www.ietf.org/internet-drafts/draft-
               ietf-rats-eat-03.txt>.
 
@@ -530,31 +501,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Birkholz                Expires 10 September 2020              [Page 10]
+Birkholz                Expires 10 September 2020               [Page 9]

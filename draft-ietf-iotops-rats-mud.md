@@ -1,7 +1,7 @@
 ---
 title: MUD-Based RATS Resources Discovery
 abbrev: Muddy Rats
-docname: draft-birkholz-rats-mud-latest
+docname: draft-ietf-iotops-rats-mud-latest
 stand_alone: true
 ipr: trust200902
 area: Security

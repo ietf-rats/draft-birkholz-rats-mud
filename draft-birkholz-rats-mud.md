@@ -43,19 +43,22 @@ informative:
 
 --- abstract
 
-Manufacturer Usage Description (MUD) files and the MUD URI that point to them are defined in RFC 8520. This document introduces a new type of MUD file to be delivered in conjunction with a MUD file signature and/or to be referenced via a MUD URI embedded in an IEEE 802.1AR Secure Device Identifier (DevID).
-A DevID is a device specific pub-key identity document that can be presented to other entities, e.g. a network management system. If this entity is also a verifier as defined by the IETF Remote ATtestation procedureS (RATS) architecture, this verifier can use the references found in the MUD file specified in this document in order to discover appropriate Reference Integrity Measurements (RIM), Endorsement Documents, or even globally suitable Remote Attestation Services (RAS).
-All three types of theses resources are required to conduct RATS. Hence, the MUD file defined in this document enables remote attestation procedures by supporting the discovery of these required resources or services.
+Manufacturer Usage Description (MUD) files and the MUD URI that point to them are defined in RFC 8520.
+This document introduces a new type of MUD file to be delivered in conjunction with a MUD file signature and/or to be referenced via a MUD URI embedded in an IEEE 802.1AR Secure Device Identifier (DevID).
+A DevID is a device specific pub-key identity document that can be presented to other entities, e.g. a network management system.
+If this entity is also a verifier as defined by the IETF Remote ATtestation procedureS (RATS) architecture, this verifier can use the references found in the MUD file specified in this document in order to discover appropriate Reference Integrity Measurements (RIM), Endorsement Documents, or even globally suitable Remote Attestation Services (RAS).
+All three types of theses resources are required to conduct RATS.
+Hence, the MUD file defined in this document enables remote attestation procedures by supporting the discovery of these required resources or services.
 
 --- middle
 
 # Introduction
 
 Verifiers, Endorsers, and Attesters are roles defined in the RATS Architecture {{-rats-arch}}.
-In the RATS architecture, the Relying Party roles rely on the Verifier to carry the burden of Evidence appraisal and to create corresponding Attestation Results for them.
+In the RATS architecture, the Attester role relies on the Verifier and Endorser roles to enable the appraisal of Attestation Evidence produced by said Attesters; and to create corresponding Attestation Results.
 Attestation Results compose a believable chunk of information that can be digested by Relying Parities in order to assess an Attester's trustworthiness.
-The assessment of a remote peer's trustworthiness is vital to determine whether any future protocol interaction between a Relying Party and a remote Attester can be considered secure.
-To create these Attestation Results to be consumed by Relying Parties, Attestation Evidence an Attester generates must to be processed by one or more appropriate Verifiers.
+The assessment of a remote peer's trustworthiness is vital to steer any future protocol interaction between the Attester and the remote Relying Party.
+To create these Attestation Results to be consumed by Relying Parties, the Attestation Evidence an Attester creates has to be processed by one or more appropriate Verifiers.
 
 This document defines a procedure that enables the discovery of resources or services in support of RATS, including:
 1.) Reference Values,
@@ -97,7 +100,8 @@ This document uses this specification and does neither modify nor augment the de
 
 As the resources required by a Verifier's appraisal procedures have to be trustworthy, a MUD signature file for a corresponding MUD File MUST be available.
 The MUD File MUST also include a reference to its MUD signature file via the 'mud-signature' statement.
-A MUD signature MAY be referenced in the DevID, but entities consuming this information must be aware that a MUD File can change. If MUD file changed (the MUD signature in the DevID does not match any more), a MUD signature file referenced in the MUD File itself MUST exist and MUST be available.
+A MUD signature MAY be referenced in the DevID, but entities consuming this information must be aware that a MUD File can change.
+If MUD file changed (the MUD signature in the DevID does not match any more), a MUD signature file referenced in the MUD File itself MUST exist and MUST be available.
 If both the signature embedded in a DevID and referenced by a MUD File do not match, the MUD File SHOULD NOT be trusted.
 
 # Trusting MUD URIs and MUD Files

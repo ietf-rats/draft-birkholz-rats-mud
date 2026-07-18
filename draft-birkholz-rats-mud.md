@@ -23,6 +23,11 @@ author:
   code: '64295'
   city: Darmstadt
 
+- ins: M. Richardson
+  name: Michael Richardson
+  org: Sandelman Software Works
+  email: mcr+ietf@sandelman.ca
+
 normative:
   RFC2119:
   RFC6991:
